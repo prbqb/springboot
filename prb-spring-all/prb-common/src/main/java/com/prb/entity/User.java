@@ -20,6 +20,7 @@ public class User implements Serializable {
     private Long userId;
     private String userName;
     private Integer age;
+    
     private Integer sex;
     private String email;
     @Version
