@@ -49,6 +49,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         System.out.println("我更新了这个方法");
         System.out.println("我的github环境已经搭建好了，现在更新本地代码到github上面");
+
         wrapper.eq("user_name",userName);
         return userMapper.selectOne(wrapper);
     }
