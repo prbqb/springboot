@@ -1,0 +1,15 @@
+server:
+  port: 8100
+spring:
+  rabbitmq:
+    host: 192.168.31.81
+    port: 5672
+    username: admin
+    password: admin
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+  application:
+    name: prb-rabbit
+

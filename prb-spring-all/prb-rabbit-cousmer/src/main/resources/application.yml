@@ -1,0 +1,19 @@
+server:
+  port: 8101
+spring:
+  application:
+    name: prb-consumer
+  rabbitmq:
+    host: 192.168.31.81
+    port: 5672
+    username: admin
+    password: admin
+    listener:
+      simple:
+        acknowledge-mode: manual
+        max-concurrency: 1
+        prefetch: 1
+        retry:
+          enabled: true
+          initial-interval: 2000
+          max-attempts: 5

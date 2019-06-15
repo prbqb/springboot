@@ -1,0 +1,18 @@
+server:
+  port: 9300
+spring:
+  redis:
+    host: 192.168.31.81
+    port: 6379
+    lettuce:
+      shutdown-timeout: 10000
+  session:
+    redis:
+      flush-mode: on_save
+
+com:
+  prb:
+    name: cy
+    school: ydyz
+    age: 18
+    role: student

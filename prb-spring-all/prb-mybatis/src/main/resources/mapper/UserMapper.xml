@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prb.mapper.UserMapper">
+
+    <select id="getUserById" resultType="com.prb.entity.User">
+        select * from user where user_id = #{userId}
+    </select>
+
+    <select id="getUserByName" resultType="com.prb.entity.User">
+        SELECT * FROM user WHERE USER_NAME = #{userName}
+    </select>
+
+    <insert id="addUser" parameterType="com.prb.entity.User" useGeneratedKeys="true" keyProperty="userId" statementType="PREPARED">
+        insert into user (user_name,age,sex,email) value (
+        #{user.userName},#{user.age},#{user.sex},#{user.email}
+        )
+    </insert>
+
+    <insert id="batchAddUser" parameterType="java.util.List">
+        insert into user (user_name,age,sex,email)
+        values
+        <foreach collection="users" item="user" separator=",">
+            (#{user.userName},#{user.age},#{user.sex},#{user.email})
+        </foreach>
+    </insert>
+
+    <delete id="delUserById">
+        delete from user where user_id = #{userId}
+    </delete>
+
+    <update id="updateUser">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="user.userName != null">
+                user_name = #{user.userName},
+            </if>
+            <if test="user.age != null">
+                age = #{user.age},
+            </if>
+            <if test="user.sex != null">
+                sex = #{user.sex},
+            </if>
+            <if test="user.email != null">
+                email = #{user.email}
+            </if>
+        </trim>
+        where user_id = #{user.userId}
+    </update>
+
+</mapper>
