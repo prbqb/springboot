@@ -93,9 +93,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     }
 
     private User genUser() {
-        System.out.println("hello 老铁");
-        System.out.println("老你妹的铁啊，我超生气的");
-        System.out.println("hai shi bu xin a");
+
+        System.out.println("老铁，我是一号机，收到吗");
         String userName = RandomUtil.generateStr(3);
         String email = RandomUtil.generateStr(10);
         Integer age = RandomUtil.genInteger(100);
