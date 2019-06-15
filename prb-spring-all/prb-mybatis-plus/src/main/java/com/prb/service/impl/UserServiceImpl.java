@@ -16,7 +16,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     UserMapper userMapper;
 
-    private static Integer resource = 0;
 
     @Override
     public User getUserById(Long userId) {
